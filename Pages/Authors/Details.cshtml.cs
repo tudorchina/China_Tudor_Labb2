@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using China_Tudor_Labb2.Data;
 using China_Tudor_Labb2.Models;
 
-namespace China_Tudor_Labb2.Pages.Books
+namespace China_Tudor_Labb2.Pages.Authors
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace China_Tudor_Labb2.Pages.Books
             _context = context;
         }
 
-        public Book Book { get; set; } = default!;
+        public Author Author { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,19 +28,14 @@ namespace China_Tudor_Labb2.Pages.Books
                 return NotFound();
             }
 
-            var book = await _context.Book
-    .Include(b => b.Publisher)
-    .Include(b => b.BookCategories)
-    .ThenInclude(b => b.Category)
-    .AsNoTracking()
-    .FirstOrDefaultAsync(m => m.ID == id);
-            if (book == null)
+            var author = await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
+            if (author == null)
             {
                 return NotFound();
             }
             else
             {
-                Book = book;
+                Author = author;
             }
             return Page();
         }

@@ -10,7 +10,9 @@ namespace China_Tudor_Labb2.Models
         
         [Display(Name = "Book Title")]
         public string Title { get; set; }
-        
+        public int? AuthorID { get; set; }
+        public Author? Author { get; set; }
+
 
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
@@ -21,11 +23,13 @@ namespace China_Tudor_Labb2.Models
         public int? PublisherID { get; set; }
 
         public Publisher? Publisher { get; set; }
+        
+        
 
-        public int? AuthorsID { get; set; }  // Cheie străină
-        public Authors? Authors { get; set; }  // Proprietate de navigare
+       
+        public ICollection<BookCategory>? BookCategories { get; set; }
 
 
-    } //navigation property 
+    }  
 }
 

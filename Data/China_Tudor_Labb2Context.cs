@@ -16,5 +16,7 @@ namespace China_Tudor_Labb2.Data
 
         public DbSet<China_Tudor_Labb2.Models.Book> Book { get; set; } = default!;
         public DbSet<China_Tudor_Labb2.Models.Publisher> Publisher { get; set; } = default!;
+        public DbSet<China_Tudor_Labb2.Models.Category> Category { get; set; } = default!;
+        public DbSet<China_Tudor_Labb2.Models.Author> Author { get; set; } = default!;
     }
 }
