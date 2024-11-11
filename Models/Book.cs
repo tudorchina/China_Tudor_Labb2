@@ -24,9 +24,10 @@ namespace China_Tudor_Labb2.Models
 
         public Publisher? Publisher { get; set; }
         
-        
 
-       
+
+        public ICollection<Borrowing>? Borrowings { get; set; }
+
         public ICollection<BookCategory>? BookCategories { get; set; }
 
 
