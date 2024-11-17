@@ -9,9 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using China_Tudor_Labb2.Data;
 using China_Tudor_Labb2.Models;
 using China_Tudor_Labb2.Migrations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace China_Tudor_Labb2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : BookCategoriesPageModel
     {
         private readonly China_Tudor_Labb2.Data.China_Tudor_Labb2Context _context;
